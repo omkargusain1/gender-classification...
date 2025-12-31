@@ -1,21 +1,24 @@
 Image Classification CNN – Training & Deployment
 
-This project implements a Convolutional Neural Network (CNN) using TensorFlow/Keras for binary image classification.
-The workflow includes:
+A complete end-to-end deep learning pipeline for binary image classification using TensorFlow/Keras, with an interactive Streamlit web application for real-time predictions.
 
-Installing required dependencies
+This project is designed to be easy to run, easy to understand, and easy to extend.
 
-Training a CNN model (model.h5)
+🚀 Project Workflow
 
-Using the trained model in a Streamlit web application (app.py)
+Install required dependencies
 
-Project Structure
+Train a CNN model and generate model.h5
+
+Deploy the trained model using a Streamlit web app
+
+📁 Project Structure
 project/
 │
-├── train_model.py        # Model training script
-├── app.py                # Streamlit application
-├── model.h5              # Saved trained model (generated after training)
-├── requirements.txt      # Required Python libraries
+├── train_model.py        # CNN training script
+├── app.py                # Streamlit web application
+├── model.h5              # Trained model (generated after training)
+├── requirements.txt      # Python dependencies
 │
 └── TaskA.image/
     ├── train/
@@ -25,11 +28,13 @@ project/
         ├── class_0/
         └── class_1/
 
+ℹ️ Important Note
 
-Note:
-Folder names inside train and val represent class labels.
+Folder names inside train/ and val/ act as class labels
 
-Requirements
+Images must be RGB and will be resized to 200 × 200
+
+🛠️ Requirements
 
 Create a file named requirements.txt with the following content:
 
@@ -39,33 +44,35 @@ numpy
 streamlit
 pillow
 
-Step 1: Install Dependencies
+⚙️ Step 1: Install Dependencies
 
-It is recommended to use a virtual environment.
+It is highly recommended to use a virtual environment.
 
 pip install -r requirements.txt
 
-Step 2: Train the Model
+🧠 Step 2: Train the Model
 
 Run the training script:
 
 python train_model.py
 
-What this script does:
+🔍 What Happens During Training?
 
-Loads training and validation images using ImageDataGenerator
+Loads images using ImageDataGenerator
 
-Trains a CNN model with multiple convolutional blocks
+Applies image rescaling and shuffling
 
-Applies:
+Trains a deep CNN with multiple convolution blocks
 
-Early stopping
+Uses advanced training callbacks:
 
-Learning rate reduction
+Early Stopping – prevents overfitting
 
-Best-model checkpointing
+Reduce Learning Rate on Plateau
 
-Evaluates performance using:
+Best Model Checkpointing
+
+Evaluates the model using:
 
 Accuracy
 
@@ -73,55 +80,70 @@ Precision
 
 Recall
 
-F1-score
+F1-Score
 
-Saves the trained model as:
+Saves the best performing model as:
 
 model.h5
 
-Step 3: Run the Streamlit Application
+🌐 Step 3: Run the Streamlit Web App
 
-After training is complete and model.h5 is generated, run:
+Once model.h5 is generated, launch the app:
 
 streamlit run app.py
 
-Streamlit App Features:
+✨ Streamlit App Features
 
-Loads the trained model.h5
+Loads the trained CNN model
 
-Accepts image input from the user
+Allows users to upload images
 
-Preprocesses the image
+Automatically preprocesses the input
 
-Predicts and displays the class label (binary classification)
+Performs binary classification
 
-Model Output
+Displays prediction results instantly
 
-Model file: model.h5
+📊 Model Details
+Component	Description
+Model Type	Convolutional Neural Network (CNN)
+Input Size	200 × 200 × 3
+Loss Function	Binary Crossentropy
+Optimizer	RMSprop
+Output Activation	Sigmoid
+Output	Binary Class Prediction
+✅ Best Practices
 
-Loss function: Binary Crossentropy
+Always train the model first before running the Streamlit app
 
-Optimizer: RMSprop
+Verify dataset paths inside train_model.py
 
-Activation: Sigmoid (binary classification)
+Use more data and epochs for better accuracy
 
-Notes & Best Practices
+Maintain class balance for stable predictions
 
-Ensure the dataset directory paths in train_model.py are correct for your system.
+🐞 Troubleshooting
+❌ Error: ValueError: input shape mismatch
 
-Always train the model before running the Streamlit app.
+✔ Solution:
+Ensure all images are RGB and resized to 200 × 200
 
-If predictions seem incorrect, retrain the model with more epochs or more data.
+❌ Error: model.h5 not found
 
-Troubleshooting
+✔ Solution:
+Run train_model.py to generate the trained model
 
-Issue: ValueError: input shape mismatch
-Solution: Ensure images are RGB and resized to (200, 200).
+📌 Future Enhancements (Optional)
 
-Issue: model.h5 not found
-Solution: Run train_model.py first to generate the model.
+Transfer learning (VGG16, MobileNet, ResNet)
 
-Author
+Multi-class classification
+
+Model performance visualization
+
+Docker deployment
+
+👨‍💻 Author
 
 Omkar Gusain
 Department of Computer Science & Engineering
