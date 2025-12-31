@@ -20,7 +20,7 @@ project/
 ├── model.h5              
 ├── requirements.txt      
 │
-└── TaskA.image/
+└── TaskA.image/    
     ├── train/
     │   ├── class_0/
     │   └── class_1/
@@ -137,13 +137,13 @@ Run train_model.py to generate the trained model
 
 Transfer learning (VGG16, MobileNet, ResNet)
 
-Multi-class classification
+   Multi-class classification
 
-Model performance visualization
+   Model performance visualization
 
-Docker deployment
+   Docker deployment
 
-👨‍💻 Author
+👨‍💻** Author******
 
 Omkar Gusain
 Department of Computer Science & Engineering
