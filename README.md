@@ -15,10 +15,10 @@ Deploy the trained model using a Streamlit web app
 📁 Project Structure
 project/
 │
-├── train_model.py        # CNN training script
-├── app.py                # Streamlit web application
-├── model.h5              # Trained model (generated after training)
-├── requirements.txt      # Python dependencies
+├── train_model.py        
+├── app.py                
+├── model.h5              
+├── requirements.txt      
 │
 └── TaskA.image/
     ├── train/
